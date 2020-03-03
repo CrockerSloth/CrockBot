@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2bfcedc6-11cb-4037-be5d-384e7f1e1b00" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="CrockBot" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YVKdfM40bJgMg5BDdOSo4f3Llv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cogs" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Python\CrockBot\cogs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Python\CrockBot\cogs\events" />
+      <recent name="D:\Python\CrockBot\cogs\memory" />
+      <recent name="D:\Python\CrockBot\cogs" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Crockbot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CrockBot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crockbot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Crockbot" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2bfcedc6-11cb-4037-be5d-384e7f1e1b00" name="Default Changelist" comment="" />
+      <created>1583022409352</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583022409352</updated>
+      <workItem from="1583022423632" duration="65390000" />
+      <workItem from="1583175057246" duration="7043000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1312" y="569" key="#Notifications" timestamp="1583174969424">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state x="1312" y="569" key="#Notifications/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583174969424" />
+    <state x="1592" y="844" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583172177001">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state x="1592" y="844" key="#com.intellij.fileTypes.FileTypeChooser/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583172177001" />
+    <state x="1466" y="662" key="FileChooserDialogImpl" timestamp="1583194219757">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state x="1466" y="662" key="FileChooserDialogImpl/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583194219757" />
+    <state width="1246" height="414" key="GridCell.Tab.0.bottom" timestamp="1583184170657">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1246" height="414" key="GridCell.Tab.0.bottom/0.0.2560.1440/-1920.345.1920.1050@0.0.2560.1440" timestamp="1583184170657" />
+    <state width="1886" height="414" key="GridCell.Tab.0.bottom/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583178450249" />
+    <state width="1246" height="414" key="GridCell.Tab.0.center" timestamp="1583184170657">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1246" height="414" key="GridCell.Tab.0.center/0.0.2560.1440/-1920.345.1920.1050@0.0.2560.1440" timestamp="1583184170657" />
+    <state width="1886" height="414" key="GridCell.Tab.0.center/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583178450249" />
+    <state width="1246" height="414" key="GridCell.Tab.0.left" timestamp="1583184170657">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1246" height="414" key="GridCell.Tab.0.left/0.0.2560.1440/-1920.345.1920.1050@0.0.2560.1440" timestamp="1583184170657" />
+    <state width="1886" height="414" key="GridCell.Tab.0.left/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583178450249" />
+    <state width="1246" height="414" key="GridCell.Tab.0.right" timestamp="1583184170657">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1246" height="414" key="GridCell.Tab.0.right/0.0.2560.1440/-1920.345.1920.1050@0.0.2560.1440" timestamp="1583184170657" />
+    <state width="1886" height="414" key="GridCell.Tab.0.right/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583178450249" />
+    <state width="1886" height="498" key="GridCell.Tab.1.bottom" timestamp="1583177281226">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state width="2493" height="474" key="GridCell.Tab.1.bottom/0.0.2560.1440/-1920.345.1920.1050@0.0.2560.1440" timestamp="1583098342990" />
+    <state width="1886" height="498" key="GridCell.Tab.1.bottom/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583177281226" />
+    <state width="1886" height="498" key="GridCell.Tab.1.center" timestamp="1583177281226">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state width="2493" height="474" key="GridCell.Tab.1.center/0.0.2560.1440/-1920.345.1920.1050@0.0.2560.1440" timestamp="1583098342990" />
+    <state width="1886" height="498" key="GridCell.Tab.1.center/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583177281226" />
+    <state width="1886" height="498" key="GridCell.Tab.1.left" timestamp="1583177281226">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state width="2493" height="474" key="GridCell.Tab.1.left/0.0.2560.1440/-1920.345.1920.1050@0.0.2560.1440" timestamp="1583098342990" />
+    <state width="1886" height="498" key="GridCell.Tab.1.left/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583177281226" />
+    <state width="1886" height="498" key="GridCell.Tab.1.right" timestamp="1583177281226">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state width="2493" height="474" key="GridCell.Tab.1.right/0.0.2560.1440/-1920.345.1920.1050@0.0.2560.1440" timestamp="1583098342990" />
+    <state width="1886" height="498" key="GridCell.Tab.1.right/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583177281226" />
+    <state x="1048" y="493" key="SettingsEditor" timestamp="1583194225801">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state x="1048" y="493" key="SettingsEditor/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583194225801" />
+    <state x="1413" y="488" width="1009" height="1470" key="search.everywhere.popup" timestamp="1583168838725">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state x="1413" y="488" width="1009" height="1470" key="search.everywhere.popup/0.0.3840.2160/-1920.1080.1920.1050@0.0.3840.2160" timestamp="1583168838725" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="file.raw" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CrockBot$Crockbot.coverage" NAME="Crockbot Coverage Results" MODIFIED="1583178450243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
