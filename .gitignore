@@ -128,5 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#pycharm extras
+# pycharm extras
 .idea/
+
+# Storage types
+*.pickle
+*.csv
