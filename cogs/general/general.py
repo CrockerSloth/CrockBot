@@ -3,24 +3,40 @@ from discord.ext import commands, tasks
 import random
 import settings
 from itertools import cycle
+import csv
+import pickle
+from datetime import datetime, time, timedelta
+import asyncio
 
 status = cycle([[discord.ActivityType.playing, "as DRG because I'm an absolute bot lol"],
                 [discord.ActivityType.watching, "Ex Machina"],
-                [discord.ActivityType.listening, "to Megalovania at 300% speed"],
+                [discord.ActivityType.listening, "Megalovania at 300% speed"],
                 [discord.ActivityType.watching, "a guide on E8S"],
                 [discord.ActivityType.playing, "Celtic Heroes"],
                 [discord.ActivityType.listening, "Joji - Run"],
                 [discord.ActivityType.playing, "Destiny 2"],
                 [discord.ActivityType.playing, "Kado Quest!"],
                 [discord.ActivityType.playing, "Sub-Level Zero"],
-                [discord.ActivityType.listening, "to a recording of McGill Typing"]])
+                [discord.ActivityType.listening, "a recording of McGill Typing"]])
+
+user_vibes = {}
+
+# Open the raid file or create a new one if none exist
+try:
+    with open('cogs/general/user_vibes.pickle', 'rb') as file:
+        user_vibes = pickle.load(file)
+except:
+    with open('cogs/general/user_vibes.pickle', 'wb') as file:
+        pickle.dump(user_vibes, file)
 
 
 class General(commands.Cog):
 
     def __init__(self, bot: commands.bot):
         self.bot = bot
+        self.user_vibes = user_vibes
         self.update_status.start()
+        self.reset_vibes.start()
 
     # Dice Roll command
     @commands.command(name='Roll', help='Rolls x y sided dice. Example: !Roll 3 20')
@@ -101,6 +117,45 @@ class General(commands.Cog):
     @commands.command(name="GitHub", help="Get a link to the bots GitHub Repo")
     async def github(self, ctx):
         await ctx.send("https://github.com/CrockerSloth/CrockBot")
+
+    # Command for sending a random vibe video
+    @commands.command(name="Vibe", help="Assigns you a random vibe")
+    async def vibe(self, ctx):
+        author = ctx.message.author.name + '#' + ctx.message.author.discriminator
+        # Check if user already has a vibe assigned
+        for user_vibe in self.user_vibes.items():
+            if author == user_vibe[0]:
+                await ctx.send(f"{ctx.message.author.name} was already assigned a vibe today:\n{user_vibe[1]}")
+                return
+        # If user doesn't have a vibe assign them one and save them to the list
+        with open('cogs/general/vibes.csv', 'rt', encoding='utf-8') as f:
+            # Select a random vibe
+            reader = csv.reader(f)
+            chosen_vibe = random.choice(list(reader))
+
+            # Save user to list
+            self.user_vibes[author] = chosen_vibe[0]
+            with open('cogs/general/user_vibes.pickle', 'wb') as fp:
+                pickle.dump(self.user_vibes, fp)
+
+            await ctx.send(f"{ctx.message.author.name} has been assigned a vibe:\n{chosen_vibe[0]}")
+
+    # Looping event for resetting user vibes
+    @tasks.loop(hours=24)
+    async def reset_vibes(self):
+        self.user_vibes = {}
+        with open('cogs/general/user_vibes.pickle', 'wb') as fp:
+            pickle.dump(self.user_vibes, fp)
+
+    @reset_vibes.before_loop
+    async def before_reset_vibes(self):
+        await self.bot.wait_until_ready()
+        now = datetime.utcnow()
+        reset = now.replace(day=now.day, hour=15, minute=0, second=0, microsecond=0)
+        delta = reset - now
+        fixed_delta = timedelta(seconds=delta.seconds)
+        pause = fixed_delta.total_seconds()
+        await asyncio.sleep(pause)
 
     # Looping event for controlling bot status
     @tasks.loop(hours=1)

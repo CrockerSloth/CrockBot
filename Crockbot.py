@@ -10,7 +10,7 @@ token = os.getenv('DISCORD_TOKEN')
 
 # Set bot command prefix and load cogs
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
-bot.load_extension('cogs.general')
+bot.load_extension('cogs.general.general')
 bot.load_extension('cogs.memory.memory')
 bot.load_extension('cogs.ffevents.ffevents')
 
