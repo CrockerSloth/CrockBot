@@ -14,10 +14,6 @@ bot.load_extension('cogs.general')
 bot.load_extension('cogs.memory.memory')
 bot.load_extension('cogs.ffevents.ffevents')
 
-# List of bot status
-status = cycle([[discord.ActivityType.playing, "as DRG since i'm a bot lol"],
-                [discord.ActivityType.watching, "Ex Machina"]])
-
 
 # Event that fires when bot connects to discord
 @bot.event
