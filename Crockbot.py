@@ -10,9 +10,11 @@ token = os.getenv('DISCORD_TOKEN')
 
 # Set bot command prefix and load cogs
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
+bot.remove_command('help')
 bot.load_extension('cogs.general.general')
 bot.load_extension('cogs.memory.memory')
 bot.load_extension('cogs.ffevents.ffevents')
+bot.load_extension('cogs.help')
 
 
 # Event that fires when bot connects to discord
