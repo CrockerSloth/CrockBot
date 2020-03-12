@@ -125,25 +125,48 @@ class General(commands.Cog):
         # Check if user already has a vibe assigned
         for user_vibe in self.user_vibes.items():
             if author == user_vibe[0]:
-                await ctx.send(f"{ctx.message.author.name} was already assigned a vibe today:\n{user_vibe[1]}")
-                return
-        # If user doesn't have a vibe assign them one and save them to the list
+                if user_vibe[1][1] is not None:
+                    await ctx.send(
+                        f"{ctx.message.author.name} was already assigned a vibe today!\nVibe Streak: **{user_vibe[1][0]}**\n{user_vibe[1][1]}")
+                    return
+        # Assign a vibe to someone already in the list
         with open('cogs/general/vibes.csv', 'rt', encoding='utf-8') as f:
             # Select a random vibe
             reader = csv.reader(f)
             chosen_vibe = random.choice(list(reader))
 
-            # Save user to list
-            self.user_vibes[author] = chosen_vibe[0]
-            with open('cogs/general/user_vibes.pickle', 'wb') as fp:
-                pickle.dump(self.user_vibes, fp)
+            # Save updated list
+            if author in self.user_vibes:
+                self.user_vibes[author] = [self.user_vibes[author][0] + 1, chosen_vibe[0]]
+            else:
+                self.user_vibes[author] = [1, chosen_vibe[0]]
+        with open('cogs/general/user_vibes.pickle', 'wb') as fp:
+            pickle.dump(self.user_vibes, fp)
 
-            await ctx.send(f"{ctx.message.author.name} has been assigned a vibe:\n{chosen_vibe[0]}")
+            await ctx.send(
+                f"{ctx.message.author.name} has been assigned a vibe!\nVibe Streak: **{self.user_vibes[author][0]}**\n{chosen_vibe[0]}")
+            return
 
-    # Looping event for resetting user vibes
+    # Command for showing all the current vibes and vibe streaks
+    @commands.command(name="Vibes")
+    async def vibes(self, ctx):
+        embed = discord.Embed(title="Vibe Check", description="Here are the current vibe rankings", color=0x00a2f9)
+        for user in self.user_vibes.items():
+            if user[1][1] is None:
+                current_vibe = "No vibe assigned"
+            else:
+                current_vibe = user[1][1]
+            embed.add_field(name=user[0], value=f"Vibe Streak: **{user[1][0]}**\n{current_vibe}", inline=False)
+        await ctx.send(embed=embed)
+
+    # Looping event for resetting user vibes, checking if streak is maintained.
     @tasks.loop(hours=24)
     async def reset_vibes(self):
-        self.user_vibes = {}
+        for key, user in list(self.user_vibes.items()):
+            if user[1] is None:
+                del self.user_vibes[key]
+            else:
+                self.user_vibes[key] = [user[0], None]
         with open('cogs/general/user_vibes.pickle', 'wb') as fp:
             pickle.dump(self.user_vibes, fp)
 

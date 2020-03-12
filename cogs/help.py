@@ -16,6 +16,9 @@ general_embed = discord.Embed(title="General Commands",
 general_embed.add_field(name="**!Vibe**",
                         value="Assigns you a vibe for the day or shows your vibe if you already have one. Vibes reset everyday",
                         inline=False)
+general_embed.add_field(name="**!Vibes**",
+                        value="Gives a list of all assigned vibes and the current vibe streak of each user",
+                        inline=False)
 general_embed.add_field(name="**!Mock**",
                         value="Has the bot repeat the previous comment in a mocking manner",
                         inline=False)
