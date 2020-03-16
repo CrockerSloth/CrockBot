@@ -320,6 +320,9 @@ class Loot(commands.Cog):
         for looter in self.looters.keys():
             self.looters[looter][4] = False
 
+        with open('cogs/loot/looters.pickle', 'wb') as f:
+            pickle.dump(self.looters, f)
+
     @reset_looting.before_loop
     async def before_reset_looting(self):
         await self.bot.wait_until_ready()
