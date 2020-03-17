@@ -19,7 +19,8 @@ rare_role = 688909739999887456
 epic_role = 688909828395106403
 legendary_role = 688910253202341898
 elder_role = 688910352536043544
-corrupt = 688910395238514708
+corrupt_role = 688910395238514708
+ascended_role = 689499862102048919
 
 all_roles = [empty_role,
              broken_role,
@@ -29,7 +30,8 @@ all_roles = [empty_role,
              epic_role,
              legendary_role,
              elder_role,
-             corrupt]
+             corrupt_role,
+             ascended_role]
 
 role_colours = [0x575757,
                 0x8d8d8d,
@@ -39,7 +41,8 @@ role_colours = [0x575757,
                 0xbd0000,
                 0xffd900,
                 0x491b7f,
-                0x050505]
+                0x050505,
+                0xf19dcf]
 
 role_names = ['Empty',
               'Broken',
@@ -49,7 +52,8 @@ role_names = ['Empty',
               'Epic',
               'Legendary',
               'Elder',
-              'Corrupt']
+              'Corrupt',
+              'Ascended']
 
 # Emoji's used in embeds
 skull_emoji = '💀'
@@ -135,25 +139,36 @@ def generate_item_name():
 
 
 def generate_item_rarity(item_rarity):
+    # if user failed the game. ensure a broken item is created
+    if item_rarity == 0:
+        return 1
+
+    # Create a max roll range by doing the sum of all rarity brackets
     probability_ratio = 2
     roll_range_max = 1
     current_tier_size = 1
-    for i in range(1, len(all_roles) - 1):
+    for i in range(1, len(all_roles) - 2):
         current_tier_size = current_tier_size * probability_ratio
         roll_range_max += current_tier_size
 
     # Make sure item rarity never goes too high
     if item_rarity >= roll_range_max:
         item_rarity = roll_range_max - 1
+
+    # roll a random value and subtract each rarity bracket until the value is below zero to find the rarity tier
     random_roll = random.randrange(0, roll_range_max - item_rarity)
     current_tier = len(all_roles) - 1
     current_tier_bracket = 1
-    for i in range(0, len(all_roles) - 1):
+    for i in range(0, len(all_roles) - 2):
         random_roll -= current_tier_bracket
         if random_roll < 0:
             return current_tier
         current_tier_bracket = current_tier_bracket * probability_ratio
         current_tier -= 1
+
+    # If something goes wrong, return common and warn terminal
+    print("item rarity role failed to find result")
+    return 2
 
 
 class Loot(commands.Cog):
@@ -318,13 +333,14 @@ class Loot(commands.Cog):
     @tasks.loop(hours=24)
     async def reset_looting(self):
         for looter in self.looters.keys():
-            self.looters[looter][4] = False
+            self.looters[looter][0] = False
 
         with open('cogs/loot/looters.pickle', 'wb') as f:
             pickle.dump(self.looters, f)
 
     @reset_looting.before_loop
     async def before_reset_looting(self):
+        # Wait until the desired reset time before starting the reset loop
         await self.bot.wait_until_ready()
         now = datetime.utcnow()
         reset = now.replace(day=now.day, hour=15, minute=0, second=0, microsecond=0)
