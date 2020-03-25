@@ -8,7 +8,7 @@ import csv
 import asyncio
 
 # Settings
-rarity_increase = 5
+rarity_increase = 15
 
 # Role id's for rarity
 empty_role = 688907869416063034
@@ -40,7 +40,7 @@ role_colours = [0x575757,
                 0x316ca0,
                 0xbd0000,
                 0xffd900,
-                0x491b7f,
+                0x932bb6,
                 0x050505,
                 0xf19dcf]
 
@@ -177,6 +177,8 @@ class Loot(commands.Cog):
         self.bot = bot
         self.looting = looting
         self.looters = looters
+
+        self.reset_looting.start()
 
     async def award_item(self, payload, message_id, success, current_roll=0):
         # Generate an item

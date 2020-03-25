@@ -38,4 +38,4 @@ def distribution_check():
 
 
 # distribution_check()
-# remove_duplicate_vibes()
+remove_duplicate_vibes()
