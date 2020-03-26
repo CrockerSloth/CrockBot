@@ -8,6 +8,7 @@ help_embed = discord.Embed(title="Help Categories",
 help_embed.add_field(name="**General**", value="!help General", inline=False)
 help_embed.add_field(name="**FFEvents**", value="!help FFEvents", inline=False)
 help_embed.add_field(name="**Memory**", value="!help Memory", inline=False)
+help_embed.add_field(name="**Loot**", value="!help Loot", inline=False)
 
 # Create general help embed
 general_embed = discord.Embed(title="General Commands",
@@ -63,6 +64,14 @@ ffevents_embed.add_field(name="**!FFCancel**",
                          value="Tells the bot to cancel an existing event. Example: *!ffcancel Event*",
                          inline=False)
 
+# Create loot help embed
+loot_embed = discord.Embed(title="Memory Commands",
+                             description="This category contains all the commands related to playing the loot mini-game",
+                             color=0xf48c00)
+loot_embed.add_field(name="**!Loot**",
+                       value="Start's an instance of the mini-game. Follow the instructions and click the reactions to play the game!",
+                       inline=False)
+
 
 class Help(commands.Cog):
 
@@ -79,6 +88,8 @@ class Help(commands.Cog):
             await ctx.send(embed=ffevents_embed)
         elif category.upper() == 'MEMORY':
             await ctx.send(embed=memory_embed)
+        elif category.upper() == 'LOOT':
+            await ctx.send(embed=loot_embed)
         else:
             await ctx.send("That category does not exist")
 
