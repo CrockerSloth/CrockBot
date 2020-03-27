@@ -181,11 +181,6 @@ class Loot(commands.Cog):
         self.reset_looting.start()
 
     async def award_item(self, payload, message_id, success, current_roll=0):
-        # Remove user from looting list
-        del self.looting[payload.message_id]
-
-        with open('cogs/loot/looting.pickle', 'wb') as f:
-            pickle.dump(self.looting, f)
 
         # Generate an item
         item_name = generate_item_name()
@@ -218,10 +213,14 @@ class Loot(commands.Cog):
         await loot_message.clear_reactions()
 
         # Update users looter value for the day
+        # Remove user from looting list
+        del self.looting[payload.message_id]
         self.looters[str(payload.member)] = [True, new_role.id, rarity]
 
         with open('cogs/loot/looters.pickle', 'wb') as f:
             pickle.dump(self.looters, f)
+        with open('cogs/loot/looting.pickle', 'wb') as f:
+            pickle.dump(self.looting, f)
 
     async def play_game(self, payload, message_id, current_roll, success=False):
         # Set update looting settings
