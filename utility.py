@@ -1,6 +1,6 @@
 import csv
 import random
-
+import pickle
 
 def remove_duplicate_vibes():
     try:
@@ -37,5 +37,24 @@ def distribution_check():
     print(max(vibe_count.values()))
 
 
+def fix_user(user):
+    with open('cogs/loot/looting.pickle', 'rb') as file:
+        looting = pickle.load(file)
+    with open('cogs/loot/looters.pickle', 'rb') as file:
+        looters = pickle.load(file)
+
+    for key, value in looting.items():
+        if value[0] == user:
+            del looting[key]
+
+    del looters[user]
+
+    with open('cogs/loot/looting.pickle', 'wb') as f:
+        pickle.dump(looting, f)
+    with open('cogs/loot/looters.pickle', 'wb') as f:
+        pickle.dump(looters, f)
+
+
+fix_user('samread#2592')
 # distribution_check()
-remove_duplicate_vibes()
+# remove_duplicate_vibes()
