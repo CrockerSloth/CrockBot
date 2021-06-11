@@ -17,5 +17,5 @@ regex==2020.2.20
 six==1.14.0
 snaptime==0.2.4
 tzlocal==2.0.0
-websockets==8.1
+websockets==9.1
 yarl==1.4.2
